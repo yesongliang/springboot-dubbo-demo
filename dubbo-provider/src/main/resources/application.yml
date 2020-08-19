@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: dubbo-provider-demo
+dubbo:
+  application:
+# The default value of dubbo.application.name is ${spring.application.name}
+    name: ${spring.application.name}
+    version: 1.0.0
+#   log4j、log4j2、slf4j、jdk、jcl（默认log4j）
+    logger: log4j 
+  scan:
+    base-packages: com.kedacom.tz.sh.service
+# Dubbo Protocol
+  protocol:
+    name: dubbo
+    port: 12345
+# Dubbo Registry
+  registry:
+    address: zookeeper://127.0.0.1   #注册中心的ip可以直接加上端口，也可以同下面的port设置
+    timeout: 6000   #超时时间设置，太短可能会报错单位是ms也就是6秒
+    port: 2181
+    
+    
